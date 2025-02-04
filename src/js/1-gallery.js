@@ -66,6 +66,25 @@ const images = [
     description: 'Lighthouse Coast Sea',
   },
 ];
+const homePage = document.querySelector('.home-page');
+homePage.style.display = 'block';
+homePage.style.width = '50px';
+homePage.style.margin = '30px 0 15px 30px';
+homePage.style.padding = '10px 20px';
+homePage.style.fontSize = '16px';
+homePage.style.color = '#fff';
+homePage.style.backgroundColor = '#007BFF';
+homePage.style.border = 'none';
+homePage.style.borderRadius = '5px';
+homePage.style.cursor = 'pointer';
+
+homePage.addEventListener('mouseover', () => {
+  homePage.style.backgroundColor = '#0056b3';
+});
+
+homePage.addEventListener('mouseout', () => {
+  homePage.style.backgroundColor = '#007BFF';
+});
 
 const gallery = document.querySelector('.gallery');
 gallery.style.display = 'flex';
@@ -107,17 +126,28 @@ galleryItems.forEach(item => {
   galleryImage.style.display = 'block';
   galleryImage.style.width = '100%';
   galleryImage.style.height = '200px';
+  galleryImage.style.boxShadow = '4px 4px 10px rgba(0, 0, 0, 0.2)';
+  galleryImage.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+
+  item.addEventListener('mouseover', () => {
+    item.style.transform = 'scale(1.05)';
+    item.style.boxShadow = '6px 6px 15px rgba(0, 0, 0, 0.3)';
+  });
+
+  item.addEventListener('mouseout', () => {
+    item.style.transform = 'scale(1)';
+    item.style.boxShadow = '4px 4px 10px rgba(0, 0, 0, 0.2)';
+  });
 });
 
-gallery.addEventListener('click', e => {
-  e.preventDefault();
-  const linkImg = e.target;
-  if (linkImg.classList.contains('gallery-image')) {
-    const originalImg = linkImg.dataset.source;
-    console.log(originalImg);
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+  captionPosition: 'bottom',
+  overlayOpacity: 0.8,
+  showCounter: false,
+});
 
-    const instance = basicLightbox.create(`
-	<img src='${originalImg}' alt='${linkImg.alt}' style="width: 1112px; height: auto;">`);
-    instance.show();
-  }
+lightbox.on('shown.simplelightbox', function () {
+  document.querySelector('.sl-wrapper').style.background = '#2E2F42';
 });

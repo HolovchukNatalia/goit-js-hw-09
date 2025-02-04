@@ -7,6 +7,41 @@ const formData = {
 const refs = {
   form: document.querySelector('.feedback-form'),
 };
+refs.form.style.margin = '30px auto';
+refs.form.style.fontFamily = "'Montserrat', sans-serif";
+refs.form.style.padding = '24px';
+refs.form.style.borderRadius = '8px';
+refs.form.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+refs.form.style.width = '408px';
+
+const input = document.querySelectorAll('.feedback-form input');
+input.forEach(item => {
+  item.style.width = '360px';
+  item.style.padding = '10px';
+  item.style.fontSize = '16px';
+  item.style.border = '1px solid';
+  item.style.borderRadius = '4px';
+  item.style.margin = '8px 0';
+});
+const textarea = document.querySelectorAll('.feedback-form textarea');
+textarea.forEach(item => {
+  item.style.width = '360px';
+  item.style.height = '80px';
+  item.style.padding = '10px';
+  item.style.margin = '8px 0 16px';
+  item.style.border = '1px solid';
+  item.style.borderRadius = '4px';
+  item.style.fontSize = '16px';
+});
+const button = document.querySelector('.feedback-form button');
+button.style.width = '95px';
+button.style.height = '40px';
+button.style.padding = '8px 16px';
+button.style.backgroundColor = '#4E75FF';
+button.style.color = '#fff';
+button.style.border = 'none';
+button.style.borderRadius = '8px';
+button.style.fontSize = '16px';
 
 refs.form.addEventListener('input', e => {
   const email = e.currentTarget.elements.email.value.trim();
