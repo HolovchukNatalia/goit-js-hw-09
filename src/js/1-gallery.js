@@ -78,14 +78,6 @@ homePage.style.border = 'none';
 homePage.style.borderRadius = '5px';
 homePage.style.cursor = 'pointer';
 
-homePage.addEventListener('mouseover', () => {
-  homePage.style.backgroundColor = '#0056b3';
-});
-
-homePage.addEventListener('mouseout', () => {
-  homePage.style.backgroundColor = '#007BFF';
-});
-
 const gallery = document.querySelector('.gallery');
 gallery.style.display = 'flex';
 gallery.style.maxWidth = '1178px';
@@ -128,16 +120,6 @@ galleryItems.forEach(item => {
   galleryImage.style.height = '200px';
   galleryImage.style.boxShadow = '4px 4px 10px rgba(0, 0, 0, 0.2)';
   galleryImage.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
-
-  item.addEventListener('mouseover', () => {
-    item.style.transform = 'scale(1.05)';
-    item.style.boxShadow = '6px 6px 15px rgba(0, 0, 0, 0.3)';
-  });
-
-  item.addEventListener('mouseout', () => {
-    item.style.transform = 'scale(1)';
-    item.style.boxShadow = '4px 4px 10px rgba(0, 0, 0, 0.2)';
-  });
 });
 
 const lightbox = new SimpleLightbox('.gallery a', {
